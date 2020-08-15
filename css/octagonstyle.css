@@ -1,0 +1,231 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	-webkit-overflow-scrolling: touch;		/*this adds momentum for swiping*/
+}
+body {
+	background-color: #000;
+	font-family: 'Poiret One', cursive;
+}
+#container {
+	width: 100vw;
+	min-height: 100vh;
+	position: relative;
+}
+header {
+	background-color: rgb(62, 160, 199);
+	color: #eee;
+	text-align: center;
+	height:80px;
+}
+header h1 {
+	padding: 5px;
+	font-size: 20px;
+}
+header h2 {
+	padding: 5px;
+	font-size: 17px;
+	color: #FFE189;
+}
+
+header h3 {
+	padding: 5px;
+	font-size: 40px;
+	color: rgb(255, 255, 255);
+	
+}
+
+#parent_of_myhex {			/*The container of the rotating part "The ground!"*/
+	perspective: 3000px;			/*Distance from the camera.*/
+	perspective-origin: 50% 1000px;	/*Where is the camera?*/
+	position: relative;
+	top: 220px;					/*This keeps the oct from touching the top, just in case*/
+	transform:scale(0.8);	/*Use this when you need to scale everything parent of myhex*/
+	z-index: 9999;				/*This puts the parent of my hex on top of everything*/
+	-webkit-user-select: none;	/*This is so that user cannot select text*/
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+#left_arrow, #right_arrow {
+	width: 50px;
+	height: 50px;
+	background-size: cover;
+	background-position: center center;			/*in case it's too big*/
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 39%;
+	z-index: 100;
+	cursor: pointer;			/*Clickable look!*/
+}
+
+
+#left_arrow {
+	background-image: url(../ui_images/left.png);	
+	left: 2vw;
+}
+#right_arrow {
+	background-image: url(../ui_images/right.png);
+	right: 2vw;
+}
+
+#myhex {					/*"The ground" The part that actually rotates*/
+	position: relative;
+	margin: 0 auto;
+	width: 23.25vw;
+	height: 23.25vw;
+	transform-style: preserve-3d;		/*Preserve the relative transform of the children (12 sides)*/
+	transition: all 1s;
+	 /*background-color: #F00;*/		/*This enables view of the hex spinning.*/
+}
+.side {/*all 6 divs and 6 p's*/
+	/*we write code here!*/
+	position: absolute;	/*to myhex*/
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+div.side {		/*only for the inner*/
+	box-shadow: inset 10px -20px 60px rgba(0,0,0,0.80);	/*little shadow for each image*/
+}
+#myhex .first {
+	transform: rotateY(0deg) translateZ(28vw);
+	background-image: url(../oct_images/first.jpg);
+}
+#myhex .second {
+	transform: rotateY(45deg) translateZ(28vw);
+	background-image: url(../oct_images/second.jpg);
+}
+#myhex .third {
+	transform: rotateY(90deg) translateZ(28vw);
+	background-image: url(../oct_images/third.jpg);
+}
+#myhex .fourth {
+	transform: rotateY(135deg) translateZ(28vw);
+	background-image: url(../oct_images/fourth.jpg);
+}
+#myhex .fifth {
+	transform: rotateY(180deg) translateZ(28vw);
+	background-image: url(../oct_images/fifth.jpg);
+}
+#myhex .sixth {
+	transform: rotateY(225deg) translateZ(28vw);
+	background-image: url(../oct_images/sixth.jpg);
+}
+#myhex .seventh {
+	transform: rotateY(270deg) translateZ(28vw);
+	background-image: url(../oct_images/seventh.jpg);
+}
+#myhex .eighth {
+	transform: rotateY(315deg) translateZ(28vw);
+	background-image: url(../oct_images/eighth.jpg);
+}
+#myhex p {
+	font-size: 2vw;
+	color: #fff;
+	font-weight: 800;
+	text-shadow: 2px 2px 0px #000000;
+	padding: 1vw 3vw;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+	text-align: center;
+}
+#myhex p a {
+	display: inline-block;
+	width: 4vw;
+	height: 4vw;
+	background-image: url(../ui_images/view.png);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#myhex .firstText {
+	transform: rotateY(0deg) translateZ(31vw);
+}
+#myhex .secondText {
+	transform: rotateY(45deg) translateZ(31vw);
+}
+#myhex .thirdText {
+	transform: rotateY(90deg) translateZ(31vw);
+}
+#myhex .fourthText {
+	transform: rotateY(135deg) translateZ(31vw);
+}
+#myhex .fifthText {
+	transform: rotateY(180deg) translateZ(31vw);
+}
+#myhex .sixthText {
+	transform: rotateY(225deg) translateZ(31vw);
+}
+#myhex .seventhText {
+	transform: rotateY(270deg) translateZ(31vw);
+}
+#myhex .eighthText {
+	transform: rotateY(315deg) translateZ(31vw);
+}
+footer {
+	position:fixed;
+	bottom:10px;
+	left:0;
+	width:100vw;
+	padding: 1vw;
+	
+}
+footer p {
+	font-size: 18px;
+	text-align: center;
+	color: #ddd;
+	margin-bottom: 10px;
+}
+
+/*************************************************************************************************************************/
+@media only screen and (max-width : 800px) {
+#myhex p {
+	font-size: 5vw;
+	padding: 0;
+}
+header {
+	height: 40px;
+	padding:3px
+}
+header h1 {
+	font-size: 12px;
+	padding:2px
+}
+header h2 {
+	font-size: 10px;
+	padding:2px
+}
+header h3 {
+	font-size: 25px;
+	padding: 20px;
+}
+	
+#parent_of_myhex {
+	perspective: 3000px;
+	position: relative;
+	top:150px;
+/*	transform:scale(0.7);*/
+
+}
+#left_arrow, #right_arrow {
+	width: 40px;
+	height: 40px;/* top: 10px;*/
+
+}
+#myhex p a {
+	width: 12vw;
+	height: 12vw;
+}
+}
