@@ -1,7 +1,7 @@
 // JavaScript Document
 $(document).ready(function () {
 	
-	//we add code for arrows and keyboard here!!!
+
 	var Yrotate = 0;	//The current degrees of myhex
 	
 	//Left arrow click
